@@ -1,31 +1,50 @@
 ﻿'use strict';
 
-ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
+var context;
+var web;
+var user;
+var currentItem;
+var hostweburl;
+var appweburl;
+var title;
 
-function initializePage()
-{
-    var context = SP.ClientContext.get_current();
-    var user = context.get_web().get_currentUser();
+function doSearch() {
+    var query = $('#txtSearch').val();
+    getSearchResults(query);
 
-    // This code runs when the DOM is ready and creates a context object which is needed to use the SharePoint object model
-    $(document).ready(function () {
-        getUserName();
+}
+
+function getSearchResults(queryText) {
+    $('#search-title').text("Resultados de la busqueda para [ " + queryText + "]");
+
+    var searchURL = appweburl + "/_api/search/query?querytext='" + queryText + "'&trimduplicates=false";
+
+    var executor = new SP.RequestExecutor(appweburl);
+
+    executor.executeAsync({
+        url: searchURL,
+        method: "GET",
+        headers: { "Accept": "application/json; odata=verbose" },
+        success: onGetSearchResultsSuccess,
+        error: onGetSearchResultsFail
+
     });
 
-    // This function prepares, loads, and then executes a SharePoint query to get the current users information
-    function getUserName() {
-        context.load(user);
-        context.executeQueryAsync(onGetUserNameSuccess, onGetUserNameFail);
-    }
+};
 
-    // This function is executed if the above call is successful
-    // It replaces the contents of the 'message' element with the user name
-    function onGetUserNameSuccess() {
-        $('#message').text('Hello ' + user.get_title());
-    }
+function onGetSearchResultsSuccess(data) {
 
-    // This function is executed if the above call fails
-    function onGetUserNameFail(sender, args) {
-        alert('Failed to get user name. Error:' + args.get_message());
+    var jsonObject = JSON.parse(data.body);
+
+    var results = jsonObject.d.query.PrimaryQueryResult.RelevantResults.Table.Rows.results;
+
+    if (results.length == 0) {
+        $("#search-results").text("No hemos encontrado ningun Item, artista");
+    } else {
+        var searchResultsHtml = "";
+        $.each(results, function (index, result) {
+
+        });
+
     }
 }

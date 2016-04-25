@@ -43,10 +43,16 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="DocumentsHunter\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4392f11f-68e0-43aa-8e62-f9be26c27d5e}</SharePointProjectItemId>
+    </None>
     <None Include="packages.config" />
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{7da9eb6f-cac3-4895-90bd-3fea952402e7}</SharePointProjectItemId>
     </None>
+    <Content Include="DocumentsHunter\Elements.xml">
+      <OpcRelationship>feature-elementmanifest</OpcRelationship>
+    </Content>
     <Content Include="Pages\Elements.xml" />
     <Content Include="Pages\Default.aspx" />
   </ItemGroup>

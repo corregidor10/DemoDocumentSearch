@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="d13b77d3-280f-4e20-b6a6-7fe483bec664" 
+        solutionId="d13b77d3-280f-4e20-b6a6-7fe483bec664" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="DemoDocumentsSearch"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="87d0f407-bedc-44d7-be46-e8db32693cd9" />
+  </features>
+</package>

@@ -45,7 +45,7 @@ function onGetSearchResultsSuccess(data) {
     } else {
         var searchResultsHtml = "";
         $.each(results, function (index, result) {
-            searchResultsHtml += "a target='_blank' href='"+result.Cells.results[6].Value+"</a><br/>";
+            searchResultsHtml += "<a target='_blank' href='" + result.Cells.results[6].Value + "'>" + result.Cells.results[6].Value + "</a><br/>";;
         });
         $("#search-results").html(searchResultsHtml);
     }
@@ -69,7 +69,7 @@ function getQueryStringParameter(paramToRetrieve) {
 }
 
 function GetListId() {
-    return decodeURIComponent(getQueryStringParameter("ListId"));
+    return decodeURIComponent(getQueryStringParameter("SPListId"));
 }
 
 function GetHostSiteUrl() {
@@ -81,7 +81,7 @@ function GetAppSiteUrl() {
 }
 
 function GetItemId() {
-    return getQueryStringParameter("ItemID");
+    return getQueryStringParameter("SPListItemID");
 }
 
 function onListLoadSucceeded() {

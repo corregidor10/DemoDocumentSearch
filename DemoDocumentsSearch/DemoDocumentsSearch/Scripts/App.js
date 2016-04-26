@@ -17,7 +17,7 @@ function doSearch() {
 }
 
 function getSearchResults(queryText) {
-    $('#search-title').text("Resultados de la busqueda para [ " + queryText + "]");
+    $('#search-title').text("Resultados de la busqueda para ["+queryText+"]");
 
     var searchURL = appweburl + "/_api/search/query?querytext='" + queryText + "'&trimduplicates=false";
 
@@ -69,7 +69,7 @@ function getQueryStringParameter(paramToRetrieve) {
 }
 
 function GetListId() {
-    return decodeURIComponent(getQueryStringParameter("ListID"));
+    return decodeURIComponent(getQueryStringParameter("ListId"));
 }
 
 function GetHostSiteUrl() {

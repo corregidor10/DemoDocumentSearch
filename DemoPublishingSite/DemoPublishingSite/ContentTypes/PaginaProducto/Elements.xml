@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Page (0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39) -->
+  <ContentType ID="0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF3900FD6DDBD8B7124B62976FCFB8D60E8ED7" 
+               Name="PaginaProducto" 
+               Group="ProductosGrupo" 
+               Description="Una pagina de productos" 
+               Inherits="TRUE" 
+               Version="0">
+    <FieldRefs>
+      <FieldRef ID="{3a3e088f-9204-4003-a967-bbeefd1c687d}" DisplayName="Product Code" Required="TRUE" Name="ProductCode" />
+    </FieldRefs>
+  </ContentType>
+</Elements>
